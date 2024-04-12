@@ -1,8 +1,7 @@
 <template>
-    Hello vue!
+    Hello show!
 </template>
 
 <script setup>
 
 </script>
-
