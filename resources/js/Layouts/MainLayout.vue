@@ -1,14 +1,28 @@
 <template>
-    <Link :href="route('index')"> Main Page </Link>
-    <Link :href="route('show')"> Show Page </Link>
-    <Link :href="route('listing.index')"> Listing Page </Link>
-    <Link :href="route('listing.create')"> Listing Create </Link>
 
-    <div v-if="flashSuccess" class="success">
-        {{ flashSuccess }}
-    </div>
+    <header class="border-b border-gray-200 dark:border-gray-700 dark:bg-gray-800 bg-white w-full">
+        <div class="container mx-auto">
+            <nav class="p-4 flex items-center justify-between">
+                <div class="font-medium">
+                    <Link :href="route('listing.index')"> Listing Page </Link>
+                </div>
+                <div class="text-xl text-indigo-600 dark:text-indigo-300 font-bold">
+                 <Link :href="route('index')"> LaraZillow </Link>
+                </div>
+               <div class="">
+                <Link :href="route('listing.create')" class="btn-primary"> + New Listing </Link>
+               </div>
+            </nav>
+        </div>
+    </header>
 
-    <slot></slot>
+    <main class="container mx-auto p-4">
+        <div v-if="flashSuccess" class="mb-4 border rounded shadow-sm border-green-600 dark:border-green-200 bg-green-100 text-green-700 p-2">
+            {{ flashSuccess }}
+        </div>
+        <slot></slot>
+    </main>
+
 </template>
 
 <script setup>
@@ -23,12 +37,5 @@
 </script>
 
 <style scoped>
-    .success{
-        background-color: rgb(0, 141, 0);
-        color: white;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 10px;
-        border: 3px solid rgb(0, 68, 0);
-    }
+
 </style>
